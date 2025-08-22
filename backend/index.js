@@ -16,10 +16,7 @@ app.use(morgan("dev"));
 
 // Rutas
 app.use("/health", healthRouter);
-app.use(process.env.API_PREFIX || "/api/v1", itemsRouter);
 
-// Manejador de errores (al final)
-app.use(errorHandler);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
