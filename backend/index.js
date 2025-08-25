@@ -8,17 +8,32 @@ const usuariosRouter = require('./routes/usuariosRoutes');
 
 const app = express();
 
-// conexion a mongo db
+dotenv.config();
+mongoose.set('strictQuery', false); 
+
+// conexión a mongo db
 mongoose.connect('mongodb+srv://admin_s:admin123_@cluster0.rmyi3rf.mongodb.net/cliente')
     .then(() => console.log('Conectado a la base exitosamente.'))
     .catch(err => console.error("Error al conectar a la BD", err));
 
+app.use(cors());
+app.use(morgan('dev'));
 app.use(bodyParser.json());
+
+// rutas
 app.use('/usuarios', usuariosRouter);
 
-app.listen(3005, () => {
-    console.log("Server ON - Port 3005 ฅ•ω•ฅ")
+// ruta base para comprobar que el servidor funciona
+app.get('/', (req, res) => {
+    res.send('Servidor funcionando correctamente');
 });
+
+// Render asigna el puerto en process.env.PORT
+const PORT = process.env.PORT || 3005;
+app.listen(PORT, () => {
+    console.log(`Server ON - Port ${PORT} ฅ•ω•ฅ`);
+});
+
 
 /*dotenv.config();
 // Middlewares base
