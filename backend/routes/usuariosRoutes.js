@@ -23,4 +23,16 @@ router.post("/addUsuarios", async (req, res) => {
         res.status(400).json({ message: err.message });
     }
 });
+
+//eliminar un usuario
+router.delete("/delUsuario/:id", async (req, res) => {
+    try {
+        const usuario = await Usuario.findByIdAndDelete(req.params.id);
+        if (!usuario) return res.status(404).json({ message: "Usuario no encontrado" })
+        res.json({ message: "Usuario eliminado" })
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+})
+
 module.exports = router;
