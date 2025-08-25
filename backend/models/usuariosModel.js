@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+// models/Usuario.js
+const mongoose = require("mongoose");
 
 // Definir el esquema de Usuario
 const UsuarioSchema = new mongoose.Schema({
@@ -30,9 +31,15 @@ const UsuarioSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  celularUsuario: String,
-  paisUsuario: String,
-  fechaNacimiento: Date,
+  celularUsuario: {
+    type: String
+  },
+  paisUsuario: {
+    type: String
+  },
+  fechaNacimiento: {
+    type: Date
+  },
   created_at: {
     type: Date,
     default: Date.now
@@ -42,7 +49,8 @@ const UsuarioSchema = new mongoose.Schema({
     required: true,
     enum: ["admin", "cliente"]
   }
-});
+}, { collection: "cliente_bd" }); 
+// 👆 forzamos a que use la colección cliente_bd (no la pluraliza)
 
 // Crear el modelo
-module.exports = mongoose.model('Usuario', UsuarioSchema);
+module.exports = mongoose.model("Usuario", UsuarioSchema);
