@@ -46,4 +46,22 @@ router.put("/updateUsuario/:id", async (req, res) => {
     }
 })
 
+//obtener un usuario por correo y contraseña
+router.post("/loginUsuario", async (req, res) => {
+    try {
+        const { correoUsuario, contraseniaUsuario } = req.body;
+        const usuario = await Usuario.findOne({ correoUsuario });
+        if (!usuario) {
+            return res.status(404).json({ message: "Usuario no encontrado" });
+        }
+        if (usuario.contraseniaUsuario !== contraseniaUsuario) {
+            return res.status(401).json({ message: "Contraseña incorrecta" });
+          }
+          res.json({ message: "Inicio de sesión exitoso", usuario });
+        } catch (error) {
+          res.status(500).json({ message: "Error al iniciar sesión", error });
+        }
+});
+
+
 module.exports = router;
