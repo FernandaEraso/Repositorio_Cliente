@@ -1,0 +1,26 @@
+const express = require('express')
+const router = express.Router();
+const Usuario = require('../models/usuariosModel');
+
+
+//obtener todos los usuarios
+router.get('/obtenerTodos', async (req, res) => {
+    try {
+        const usuarios = await Usuario.find();
+        res.json(usuarios)
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
+});
+
+//agregar un nuevo usuario
+router.post("/addUsuarios", async (req, res) => {
+    try {
+        const usuario = new Usuario(req.body);
+        await usuario.save();
+        res.status(201).json(usuario)
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+module.exports = router;
