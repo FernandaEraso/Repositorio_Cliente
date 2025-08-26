@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const UsuarioSchema = new mongoose.Schema({
   idUsuario: {
     type: Number,
-    required: true,
+    required: false,
     unique: true
   },
   nombreUsuario: {
