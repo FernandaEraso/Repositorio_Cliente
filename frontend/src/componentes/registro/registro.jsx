@@ -30,7 +30,8 @@ export default function RegistroUsuario() {
 
     const nuevoUsuario = {
       ...formData,
-      created_at: new Date().toISOString(), // Fecha actual
+      fechaNacimiento: { $date: new Date(formData.fechaNacimiento).toISOString() },
+      created_at: { $date: new Date().toISOString() },
     };
 
     try {
@@ -43,6 +44,8 @@ export default function RegistroUsuario() {
       });
 
       if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error("Detalles del error:", errorData);
         throw new Error("Error al registrar usuario");
       }
 
