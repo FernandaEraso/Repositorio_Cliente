@@ -34,10 +34,10 @@ app.listen(PORT, () => {
     console.log(`Server ON - Port ${PORT} ฅ•ω•ฅ`);
 });
 
-
+app.use(cors());
 /*dotenv.config();
 // Middlewares base
-app.use(cors());
+
 app.use(express.json());
 app.use(morgan("dev"));
 // Rutas
