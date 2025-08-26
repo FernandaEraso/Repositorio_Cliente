@@ -3,7 +3,7 @@ const router = Router();
 
 router.get("/", (req, res) => {
   res.status(200).json({
-    status: "ok",
+    status: "mi api esta funcionando correctamente",
     service: "mi-api",
     uptime: process.uptime(),
     timestamp: new Date().toISOString()
