@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./registro.css";
 
 export default function RegistroUsuario() {
   const [formData, setFormData] = useState({
@@ -28,11 +29,13 @@ export default function RegistroUsuario() {
     setLoading(true);
     setMensaje("");
 
-    const nuevoUsuario = {
-      ...formData,
-      fechaNacimiento: { $date: new Date(formData.fechaNacimiento).toISOString() },
-      created_at: { $date: new Date().toISOString() },
-    };
+const nuevoUsuario = {
+  idUsuario: Date.now().toString(), // usa timestamp único
+  ...formData,
+  fechaNacimiento: new Date(formData.fechaNacimiento),
+  created_at: new Date(),
+};
+
 
     try {
       const response = await fetch("https://repositorio-cliente.onrender.com/usuarios/addUsuarios", {
@@ -183,6 +186,12 @@ export default function RegistroUsuario() {
         >
           {loading ? "Registrando..." : "Registrarse"}
         </button>
+        <p>
+          ¿Ya tienes cuenta?{" "}
+          <Link to="/" className="link">
+            Inicia sesión aquí
+          </Link>
+        </p>
       </form>
     </div>
   );
