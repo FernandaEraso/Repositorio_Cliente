@@ -1,7 +1,7 @@
 /* ===== Fondo general ===== */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #1e1e2f, #3a1c71, #d76d77, #ffaf7b);
+  background: linear-gradient(135deg,  #22073c, #321976, #275a71, #2779b3);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
   min-height: 100vh;
