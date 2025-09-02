@@ -1,0 +1,60 @@
+/* Estilos generales del navbar */
+.navbar {
+  background-color: #000000a3; /* Negro sólido */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+/* Logo */
+.navbar-logo span {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Links */
+.navbar-links {
+  display: flex;
+  gap: 32px;
+}
+
+.navbar-links a {
+  color: #d1d5db; /* Gris claro */
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.navbar-links a:hover {
+  color: #ffffff; /* Se vuelve blanco al pasar */
+}
+
+/* Botón Iniciar Sesión */
+.btn-login {
+  padding: 8px 24px;
+  border-radius: 9999px;
+  background: linear-gradient(to right, #7e22ce, #2563eb); /* Violeta → Azul */
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: opacity 0.2s ease-in-out;
+}
+
+.btn-login:hover {
+  opacity: 0.9;
+}

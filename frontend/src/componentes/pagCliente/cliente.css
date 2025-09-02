@@ -1,0 +1,68 @@
+.contenedor {
+  padding: 60px;
+}
+
+.titulo {
+  margin: 30px 0 20px;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  color: #c3c3c3
+}
+
+.tarjetas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.tarjeta {
+  width: 280px;
+  background-color: rgba(255, 255, 255, 0.822); /* 🔹 Fondo blanco traslúcido */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: transform 0.2s, background-color 0.3s ease-in-out;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  background-color: rgba(136, 149, 220, 0.9); /* 🔹 Un poco menos transparente al pasar el mouse */
+}
+
+.imagen {
+  height: 150px;
+  background-color: #000000; /* aquí pones la imagen */
+}
+
+.info {
+  padding: 15px;
+}
+
+.ciudad {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #321976;
+}
+
+.detalle {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.imagen {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;              /* evita que la imagen se salga */
+}
+
+.imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;             /* rellena sin deformar */
+  display: block;                /* quita espacio extra de inline */
+}
