@@ -1,8 +1,9 @@
+// Inicio.jsx
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./inicio.css";
 
-export default function Inicio() {
+export default function Inicio({ setUsuario }) {
   const [formData, setFormData] = useState({
     correoUsuario: "",
     contraseniaUsuario: "",
@@ -46,9 +47,14 @@ export default function Inicio() {
         localStorage.setItem("token", data.token);
       }
 
-      // ✅ redirigir al dashboard
+      // ✅ Guardar usuario en el estado global
+      if (data.usuario) {
+        setUsuario(data.usuario);
+      }
+
+      // ✅ redirigir al home (o dashboard si lo tienes)
       setTimeout(() => {
-        navigate("/dashboard"); // ajusta según tu ruta
+        navigate("/");
       }, 1000);
     } catch (error) {
       setMensaje(error.message);

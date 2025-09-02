@@ -6,7 +6,7 @@ import Navbar from "../navbar/navbar";
 export default function Cliente() {
   return (
     <div className="contenedor">
-      <Navbar />
+      
 
 
       {/* Sección de destinos */}
