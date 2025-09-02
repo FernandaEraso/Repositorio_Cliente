@@ -1,16 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import RegistroUsuario from "./componentes/registro/registro";
-import Inicio from "./componentes/inicioSesion/inicio"
+import Inicio from "./componentes/inicioSesion/inicio";
+import Cliente from "./componentes/pagCliente/cliente";
 
 function App() {
   return (
     <Router>
       <Routes>
-        {/* Login en la raíz */}
-        <Route path="/" element={<Inicio />} />
-
-        {/* Registro en /registro */}
+        <Route path="/" element={<Cliente />} />
+        <Route path="/inicioSesion" element={<Inicio />} />
         <Route path="/registro" element={<RegistroUsuario />} />
       </Routes>
     </Router>
